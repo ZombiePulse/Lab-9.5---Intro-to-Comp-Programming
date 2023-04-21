@@ -1,0 +1,59 @@
+# The main Function. 
+def main():
+  endProgram = 'no'
+  while endProgram == 'no':
+    # Declares the variables and arrays. 
+    notGreenCost = [0] * 12
+    goneGreenCost = [0] * 12
+    savings = [0] * 12
+    months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']
+
+    # Calls all the functions. 
+    getNotGreen(notGreenCost, months)
+    getGoneGreen(goneGreenCost, months)
+    energySaved(notGreenCost, goneGreenCost, savings)
+    displayInfo(notGreenCost, goneGreenCost, savings, months)
+    endProgram = input('Do you want to end program? (Enter a yes or no): ')
+    while not (endProgram == 'yes' or endProgram == 'no'):
+      print ('Invalid response. Please enter a yes or no.')
+      endProgram = input('Do you want to end program? (Enter a yes or no): ')
+
+# Asks for Not Green Energy costs for every month. 
+def getNotGreen(notGreenCost, months):
+  counter = 0
+  while counter < 12:
+    print ('Enter NOT GREEN energy costs for', months[counter])
+    notGreenCost[counter] = input('Enter now -->')
+    counter = counter + 1
+  print ('-------------------------------------------------')
+
+# Asks for Green energy costs for every month. 
+def getGoneGreen(goneGreenCost, months):
+  counter = 0
+  while counter < 12:
+    print ('Enter GONE GREEN energy costs for', months[counter])
+    goneGreenCost[counter] = input('Enter now -->')
+    counter = counter + 1
+  print ('-------------------------------------------------')
+
+# Calculates the Energy Cost Saved. 
+def energySaved(notGreenCost, goneGreenCost, savings):
+  counter = 0
+  while int(counter) < 12:
+    int(savings[counter]) == notGreenCost[counter] - goneGreenCost[counter]
+    int(counter) == counter + 1
+
+# Displays information to the user. 
+def displayInfo(notGreenCost, goneGreenCost, savings, months):
+  counter = 0
+  print()
+  print ('                        SAVINGS                      ')
+  print ('_____________________________________________________')
+  print ('SAVINGS     NOT GREEN     GONE GREEN       MONTH')
+  print ('_____________________________________________________')
+
+  while counter < 12:
+    print ('$', savings[counter], '         $', notGreenCost[counter], '         $', goneGreenCost[counter], '         ', months[counter] )
+  
+# Calls main and all the functions within. 
+main()
